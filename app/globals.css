@@ -1,0 +1,178 @@
+@import "tailwindcss";
+@import "lenis/dist/lenis.css";
+
+@theme {
+  --color-ink: #0c0b09;
+  --color-ink-2: #15130f;
+  --color-ink-3: #1f1c17;
+  --color-cream: #f3ede2;
+  --color-cream-2: #e8dfcf;
+  --color-gold: #c9a24a;
+  --color-gold-2: #e6c87e;
+  --color-ember: #d1582f;
+  --color-navy: #0b2859;
+  --color-navy-2: #14376f;
+  --color-paper: #f6f1e7;
+  --color-paper-2: #ebe3d3;
+  --color-brass: #c99a2e;
+
+  /* Option D: clean, light, engineered */
+  --color-d-bg: #fcfcfc;
+  --color-d-alt: #d9e8f1;
+  --color-d-muted: #eff4f4;
+  --color-d-dark: #050c22;
+  --color-d-text: #050c22;
+  --color-d-sub: #5b5f6e;
+  --color-d-line: #e4e6ea;
+
+  /* Option E: monochrome luxury */
+  --color-x-black: #0a0a0b;
+  --color-x-ink: #111112;
+  --color-x-white: #fafaf8;
+  --color-x-grey: #b9b9b6;
+  --color-x-mute: #6b6b68;
+  --color-x-line: #e3e3df;
+  --color-x-gold: #c9a24a;
+  --color-muted: #8f877a;
+
+  --font-serif: var(--font-fraunces), Georgia, serif;
+  --font-sans: var(--font-manrope), system-ui, sans-serif;
+}
+
+/* Option B fonts are scoped to its layout wrapper, so resolve them where used (inline). */
+@theme inline {
+  --font-display: var(--font-instrument), Georgia, serif;
+  --font-grotesk: var(--font-grotesk-b), system-ui, sans-serif;
+  --font-hand: var(--font-caveat), cursive;
+  --font-d: var(--font-intertight), "Helvetica Neue", Arial, sans-serif;
+  --font-x: var(--font-archivo), "Helvetica Neue", Arial, sans-serif;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  background: var(--color-ink);
+}
+
+body {
+  background: var(--color-ink);
+  color: var(--color-cream);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-gold);
+  color: var(--color-ink);
+}
+
+/* Film grain overlay for a premium, tactile feel */
+.grain {
+  pointer-events: none;
+  position: fixed;
+  inset: -50%;
+  z-index: 90;
+  opacity: 0.06;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  animation: grain 8s steps(10) infinite;
+}
+
+@keyframes grain {
+  0%, 100% { transform: translate(0, 0); }
+  20% { transform: translate(-5%, 3%); }
+  40% { transform: translate(4%, -6%); }
+  60% { transform: translate(-3%, 5%); }
+  80% { transform: translate(6%, -2%); }
+}
+
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+
+.line-mask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
+}
+
+.text-outline {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(230, 200, 126, 0.35);
+}
+
+/* Map pins */
+@keyframes pulse-ring {
+  0% { r: 6; opacity: 0.9; }
+  100% { r: 34; opacity: 0; }
+}
+.pin-pulse {
+  animation: pulse-ring 2.4s ease-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .grain { display: none; }
+}
+
+@keyframes fadeYear {
+  from { opacity: 0; transform: translateY(4%); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- Option B: paper & ink ---------- */
+.paper-bg {
+  background-color: var(--color-paper);
+  background-image:
+    radial-gradient(rgba(11, 40, 89, 0.07) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+.marker {
+  background-image: linear-gradient(transparent 58%, rgba(201, 154, 46, 0.45) 58%, rgba(201, 154, 46, 0.45) 92%, transparent 92%);
+  background-repeat: no-repeat;
+  background-size: var(--mk, 0%) 100%;
+}
+
+.sketch-border {
+  border: 1.5px solid var(--color-navy);
+  border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+}
+
+.hide-scrollbar::-webkit-scrollbar { display: none; }
+
+@keyframes marquee-l { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes marquee-r { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+.marquee-l { animation: marquee-l 38s linear infinite; }
+.marquee-r { animation: marquee-r 44s linear infinite; }
+
+/* ---------- Option E: monochrome luxury ---------- */
+.wide {
+  font-family: var(--font-archivo), "Helvetica Neue", Arial, sans-serif;
+  font-stretch: 125%;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: 0.92;
+}
+.micro {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.dash-grid > * { border-color: #d9d9d4; border-style: dashed; }
+@keyframes scrollcue { 0% { transform: translateY(-100%); } 100% { transform: translateY(200%); } }
+@keyframes ring { 0% { transform: translate(-50%, -50%) scale(0.85); opacity: 0; } 30% { opacity: 1; } 100% { transform: translate(-50%, -50%) scale(1.15); opacity: 0; } }

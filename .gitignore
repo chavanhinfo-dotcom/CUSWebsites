@@ -1,0 +1,11 @@
+node_modules
+.next
+out
+next-env.d.ts
+*.tsbuildinfo
+.vercel
+.env*.local
+
+# client source material (not needed to build the site)
+Chavan_Udyog_Samuh_Company_Profile.docx
+WhatsApp Image*.jpeg
