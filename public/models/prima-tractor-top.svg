@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -34 1610 318" width="1610" height="318">
+  <!-- The same Tata Prima tractor and tipper trailer seen from directly above, facing right (1 unit = 1 cm;
+       the truck's centreline is y 125; its left side is at the top). The open tipper body carries a load
+       of crushed stone. Original illustration. -->
+  <defs>
+    <filter id="b1" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation="0.8"/></filter>
+    <filter id="b3" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="3"/></filter>
+    <filter id="b8" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="8"/></filter>
+    <!-- crushed stone: grey aggregate with light and dark chips -->
+    <filter id="stone" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.22" numOctaves="3" seed="11" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0.55 0 0 0 0.22  0.55 0 0 0 0.21  0.5 0 0 0 0.2  0 0 0 0 1" result="c"/>
+      <feComposite in="c" in2="SourceGraphic" operator="in"/>
+    </filter>
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="1.4" numOctaves="2" seed="7" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.09 0"/>
+      <feComposite in2="SourceGraphic" operator="in"/>
+    </filter>
+    <linearGradient id="heap" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#000" stop-opacity="0.35"/>
+      <stop offset="0.3" stop-color="#fff" stop-opacity="0.12"/>
+      <stop offset="0.55" stop-color="#fff" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0.4"/>
+    </linearGradient>
+    <linearGradient id="rail" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1f4a2d"/><stop offset="0.5" stop-color="#4f8a60"/><stop offset="1" stop-color="#1f4a2d"/>
+    </linearGradient>
+    <linearGradient id="railEnd" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#1f4a2d"/><stop offset="0.5" stop-color="#4f8a60"/><stop offset="1" stop-color="#1f4a2d"/>
+    </linearGradient>
+    <linearGradient id="cabRoof" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1c5cb2"/>
+      <stop offset="0.12" stop-color="#3f9ee0"/>
+      <stop offset="0.5" stop-color="#2b80d0"/>
+      <stop offset="0.88" stop-color="#3f9ee0"/>
+      <stop offset="1" stop-color="#174f9f"/>
+    </linearGradient>
+    <linearGradient id="tankTop" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#16171a"/><stop offset="0.45" stop-color="#4a4d52"/><stop offset="1" stop-color="#121315"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ================= TRACTOR BEHIND THE CAB ================= -->
+  <rect x="1180" y="82" width="170" height="11" fill="#141517"/>
+  <rect x="1180" y="157" width="170" height="11" fill="#141517"/>
+  <rect x="1296" y="93" width="49" height="64" fill="#2c2e32"/>
+  <g stroke="#45484c" stroke-width="1.2"><path d="M1300 100 L1340 100 M1300 110 L1340 110 M1300 120 L1340 120 M1300 130 L1340 130 M1300 140 L1340 140 M1300 150 L1340 150"/></g>
+  <rect x="1246" y="4" width="64" height="34" rx="6" fill="#121315"/>
+  <rect x="1246" y="212" width="64" height="34" rx="6" fill="#121315"/>
+  <rect x="1250" y="214" width="80" height="32" rx="13" fill="url(#tankTop)"/>
+  <g fill="none" stroke-linecap="round">
+    <path d="M1344 112 C1312 100 1282 114 1248 118" stroke="#8e1d14" stroke-width="5"/>
+    <path d="M1344 112 C1312 100 1282 114 1248 118" stroke="#d23b2b" stroke-width="5" stroke-dasharray="2.2 1.6"/>
+    <path d="M1344 130 C1310 138 1282 126 1248 130" stroke="#a87d10" stroke-width="5"/>
+    <path d="M1344 130 C1310 138 1282 126 1248 130" stroke="#f0c43a" stroke-width="5" stroke-dasharray="2.2 1.6"/>
+  </g>
+
+  <!-- ================= OPEN TIPPER BODY WITH ITS LOAD ================= -->
+  <rect x="38" y="3" width="1210" height="244" fill="#173a24"/>
+  <!-- the load: a long heap, highest along the middle -->
+  <path d="M58 22 Q640 4 1228 22 L1228 228 Q640 246 58 228 Z" fill="#888"/>
+  <path d="M58 22 Q640 4 1228 22 L1228 228 Q640 246 58 228 Z" fill="#888" filter="url(#stone)"/>
+  <path d="M58 22 Q640 4 1228 22 L1228 228 Q640 246 58 228 Z" fill="url(#heap)"/>
+  <!-- inner faces of the side walls, the shadow they cast on the load -->
+  <rect x="44" y="9" width="1198" height="12" fill="#0f2a19"/>
+  <rect x="44" y="229" width="1198" height="12" fill="#1f4a2d"/>
+  <rect x="58" y="20" width="1170" height="10" fill="#000" opacity="0.35" filter="url(#b3)"/>
+  <!-- top rails, end walls, hinge of the tail gate -->
+  <rect x="38" y="3" width="1210" height="8" fill="url(#rail)"/>
+  <rect x="38" y="239" width="1210" height="8" fill="url(#rail)"/>
+  <rect x="38" y="3" width="14" height="244" fill="url(#railEnd)"/>
+  <rect x="1234" y="3" width="14" height="244" fill="url(#railEnd)"/>
+  <rect x="38" y="3" width="1210" height="244" fill="#000" filter="url(#grain)" opacity="0.6"/>
+  <rect x="33" y="10" width="5" height="230" fill="#111214"/>
+  <rect x="33" y="12" width="5" height="14" fill="#d4241a"/><rect x="33" y="224" width="5" height="14" fill="#d4241a"/>
+
+  <!-- ================= CAB ROOF ================= -->
+  <!-- mirrors on their arms -->
+  <path d="M1554 2 L1580 -24 M1554 248 L1580 274" stroke="#0e0f11" stroke-width="4" stroke-linecap="round"/>
+  <rect x="1570" y="-32" width="26" height="11" rx="3" fill="#101113"/>
+  <rect x="1570" y="271" width="26" height="11" rx="3" fill="#101113"/>
+  <!-- black bumper just showing ahead of the cab -->
+  <rect x="1572" y="10" width="22" height="230" rx="7" fill="#151618"/>
+  <!-- the roof -->
+  <path d="M1355 0 L1546 0 Q1578 0 1578 30 L1578 220 Q1578 250 1546 250 L1355 250 Q1345 250 1345 240 L1345 10 Q1345 0 1355 0 Z" fill="url(#cabRoof)"/>
+  <path d="M1355 0 L1546 0 Q1578 0 1578 30 L1578 220 Q1578 250 1546 250 L1355 250 Q1345 250 1345 240 L1345 10 Q1345 0 1355 0 Z" fill="#000" filter="url(#grain)"/>
+  <!-- windscreen top edge just visible, roof seam, beacon -->
+  <path d="M1562 14 Q1576 18 1576 34 L1576 216 Q1576 232 1562 236 Z" fill="#14181d"/>
+  <path d="M1366 8 L1552 8 M1366 242 L1552 242" stroke="#164a92" stroke-width="1.4"/>
+  <rect x="1532" y="116" width="12" height="18" rx="3" fill="#121315"/>
+  <rect x="1535" y="119" width="6" height="12" rx="2" fill="#f29a1d"/>
+  <!-- gloss: softbox reflections along the roof -->
+  <rect x="1365" y="40" width="170" height="20" rx="10" fill="#fff" opacity="0.18" filter="url(#b8)"/>
+  <path d="M1356 3 L1546 3 Q1572 3 1574 28" fill="none" stroke="#e6f6ff" stroke-opacity="0.6" stroke-width="1.6" filter="url(#b1)"/>
+</svg>

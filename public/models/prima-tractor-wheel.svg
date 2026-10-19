@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-53 -53 106 106" width="106" height="106">
+  <!-- A 295/80 R22.5 truck wheel (1 unit = 1 cm) with a black-painted steel disc, as on the reference
+       truck: ten hand holes, ten wheel nuts on a 335 mm circle, the hub. Drawn on its own so it can turn. -->
+  <defs>
+    <radialGradient id="tyre" cx="0" cy="0" r="52" gradientUnits="userSpaceOnUse">
+      <stop offset="0.55" stop-color="#2a2b2e"/>
+      <stop offset="0.66" stop-color="#1a1b1d"/>
+      <stop offset="0.9" stop-color="#222326"/>
+      <stop offset="0.97" stop-color="#141416"/>
+      <stop offset="1" stop-color="#0a0a0b"/>
+    </radialGradient>
+    <radialGradient id="disc" cx="-9" cy="-12" r="36" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4b4e53"/>
+      <stop offset="0.45" stop-color="#25272a"/>
+      <stop offset="1" stop-color="#121315"/>
+    </radialGradient>
+    <linearGradient id="flange" x1="0" y1="-1" x2="0" y2="1">
+      <stop offset="0" stop-color="#7d8186"/>
+      <stop offset="0.35" stop-color="#2c2e31"/>
+      <stop offset="1" stop-color="#151618"/>
+    </linearGradient>
+    <radialGradient id="hub" cx="-3" cy="-4" r="12" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#5d6065"/>
+      <stop offset="1" stop-color="#1e2023"/>
+    </radialGradient>
+    <filter id="grain" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="2.2" numOctaves="2" seed="3" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.05 0"/>
+      <feComposite in2="SourceGraphic" operator="in"/>
+    </filter>
+  </defs>
+  <circle r="52" fill="url(#tyre)"/>
+  <circle r="52" fill="#000" filter="url(#grain)"/>
+  <!-- tread blocks at the shoulder, sidewall rings -->
+  <circle r="50.4" fill="none" stroke="#2a2b2e" stroke-width="2.6" stroke-dasharray="3.2 2.2"/>
+  <circle r="47" fill="none" stroke="#323336" stroke-width="0.8"/>
+  <circle r="31.5" fill="none" stroke="#0e0f10" stroke-width="2"/>
+  <!-- rim flange and well, black paint with a sheen along the top -->
+  <circle r="29.2" fill="url(#flange)"/>
+  <circle r="27.4" fill="#0c0d0e"/>
+  <circle r="26.2" fill="url(#disc)"/>
+  <path d="M-22 -14 A26 26 0 0 1 8 -25" fill="none" stroke="#9ea3a9" stroke-opacity="0.45" stroke-width="1.6"/>
+  <!-- ten hand holes -->
+  <g fill="#050506">
+    <ellipse cx="0" cy="-21.3" rx="3.6" ry="2.5"/>
+    <ellipse cx="0" cy="-21.3" rx="3.6" ry="2.5" transform="rotate(36)"/>
+    <ellipse cx="0" cy="-21.3" rx="3.6" ry="2.5" transform="rotate(72)"/>
+    <ellipse cx="0" cy="-21.3" rx="3.6" ry="2.5" transform="rotate(108)"/>
+    <ellipse cx="0" cy="-21.3" rx="3.6" ry="2.5" transform="rotate(144)"/>
+    <ellipse cx="0" cy="-21.3" rx="3.6" ry="2.5" transform="rotate(180)"/>
+    <ellipse cx="0" cy="-21.3" rx="3.6" ry="2.5" transform="rotate(216)"/>
+    <ellipse cx="0" cy="-21.3" rx="3.6" ry="2.5" transform="rotate(252)"/>
+    <ellipse cx="0" cy="-21.3" rx="3.6" ry="2.5" transform="rotate(288)"/>
+    <ellipse cx="0" cy="-21.3" rx="3.6" ry="2.5" transform="rotate(324)"/>
+  </g>
+  <!-- raised centre with ten wheel nuts (bare steel) -->
+  <circle r="18.6" fill="none" stroke="#3d4044" stroke-width="1"/>
+  <g fill="#8b8f94" stroke="#2a2c2f" stroke-width="0.5">
+    <polygon points="0,-18.4 1.6,-17.5 1.6,-15.7 0,-14.8 -1.6,-15.7 -1.6,-17.5"/>
+    <polygon points="0,-18.4 1.6,-17.5 1.6,-15.7 0,-14.8 -1.6,-15.7 -1.6,-17.5" transform="rotate(36)"/>
+    <polygon points="0,-18.4 1.6,-17.5 1.6,-15.7 0,-14.8 -1.6,-15.7 -1.6,-17.5" transform="rotate(72)"/>
+    <polygon points="0,-18.4 1.6,-17.5 1.6,-15.7 0,-14.8 -1.6,-15.7 -1.6,-17.5" transform="rotate(108)"/>
+    <polygon points="0,-18.4 1.6,-17.5 1.6,-15.7 0,-14.8 -1.6,-15.7 -1.6,-17.5" transform="rotate(144)"/>
+    <polygon points="0,-18.4 1.6,-17.5 1.6,-15.7 0,-14.8 -1.6,-15.7 -1.6,-17.5" transform="rotate(180)"/>
+    <polygon points="0,-18.4 1.6,-17.5 1.6,-15.7 0,-14.8 -1.6,-15.7 -1.6,-17.5" transform="rotate(216)"/>
+    <polygon points="0,-18.4 1.6,-17.5 1.6,-15.7 0,-14.8 -1.6,-15.7 -1.6,-17.5" transform="rotate(252)"/>
+    <polygon points="0,-18.4 1.6,-17.5 1.6,-15.7 0,-14.8 -1.6,-15.7 -1.6,-17.5" transform="rotate(288)"/>
+    <polygon points="0,-18.4 1.6,-17.5 1.6,-15.7 0,-14.8 -1.6,-15.7 -1.6,-17.5" transform="rotate(324)"/>
+  </g>
+  <circle r="11.5" fill="url(#hub)"/>
+  <circle r="11.5" fill="none" stroke="#0e0f10" stroke-width="1"/>
+  <circle r="6" fill="#111214"/>
+  <circle r="3" fill="#6b6e73"/>
+  <!-- soft studio highlight on the tyre's upper shoulder -->
+  <path d="M-44 -24 A50 50 0 0 1 -14 -48" fill="none" stroke="#fff" stroke-opacity="0.11" stroke-width="4"/>
+</svg>

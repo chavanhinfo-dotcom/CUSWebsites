@@ -10,9 +10,11 @@ A static Next.js 15 site presenting five design directions for the client to com
 | `/option-c/` | **C**: A with the 3D diorama journey (dawn to dusk) |
 | `/option-d/` | **D**: clean, light and engineered, with a monochrome 3D model |
 | `/option-e/` | **E**: monochrome luxury (globe hero, 3D fleet story, milestone road, highway) |
-
 All text lives in [`lib/content.ts`](lib/content.ts). Photography is from Unsplash; brand names are
-shown as text, since manufacturer logos need permission.
+shown as text, since manufacturer logos need permission. Option E uses official product renders
+(Hero Splendor+, Royal Enfield Bullet 350, Samsung lineup) in [`public/models/`](public/models/), taken
+from bikedekho.com, bikewale.com and Samsung's site; replace them with the brands' dealer media-kit
+files before the public launch.
 
 ## Run locally
 

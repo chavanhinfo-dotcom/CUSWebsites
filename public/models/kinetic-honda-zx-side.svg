@@ -1,0 +1,310 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1830 1300" width="1830" height="1300">
+  <!-- Kinetic Honda ZX, left side, facing right: an original studio-style illustration, measured from a
+       side photograph and drawn to the published dimensions (1 unit = 1 mm, ground = bottom edge,
+       1215 mm wheelbase, 90/100-10 tyres, 1064 mm to the top of the handlebar cowl). -->
+  <defs>
+    <!-- soft studio lighting -->
+    <filter id="b1" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation="1.2"/></filter>
+    <filter id="b3" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="3"/></filter>
+    <filter id="b7" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="7"/></filter>
+    <filter id="b14" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="14"/></filter>
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="1.6" numOctaves="2" seed="4" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.10 0"/>
+      <feComposite in2="SourceGraphic" operator="in"/>
+    </filter>
+
+    <linearGradient id="paint" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2c2e33"/>
+      <stop offset="0.12" stop-color="#121316"/>
+      <stop offset="0.55" stop-color="#08090a"/>
+      <stop offset="0.85" stop-color="#101114"/>
+      <stop offset="1" stop-color="#26282c"/>
+    </linearGradient>
+    <linearGradient id="paintH" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#0a0a0c"/>
+      <stop offset="0.45" stop-color="#15161a"/>
+      <stop offset="0.7" stop-color="#2a2c31"/>
+      <stop offset="0.86" stop-color="#0d0e10"/>
+      <stop offset="1" stop-color="#1b1c20"/>
+    </linearGradient>
+    <linearGradient id="vinyl" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3b3c41"/>
+      <stop offset="0.1" stop-color="#1e1f22"/>
+      <stop offset="0.6" stop-color="#121315"/>
+      <stop offset="1" stop-color="#0a0a0b"/>
+    </linearGradient>
+    <linearGradient id="greyPlastic" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#4a4d52"/>
+      <stop offset="1" stop-color="#80838a"/>
+    </linearGradient>
+    <linearGradient id="castDark" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5a5d63"/>
+      <stop offset="0.25" stop-color="#3a3c41"/>
+      <stop offset="0.75" stop-color="#232428"/>
+      <stop offset="1" stop-color="#16171a"/>
+    </linearGradient>
+    <linearGradient id="amber" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffe2a0"/>
+      <stop offset="0.35" stop-color="#ffaa2e"/>
+      <stop offset="0.75" stop-color="#e07a0e"/>
+      <stop offset="1" stop-color="#9c4f06"/>
+    </linearGradient>
+    <linearGradient id="ruby" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff8a7a"/>
+      <stop offset="0.4" stop-color="#e2281c"/>
+      <stop offset="1" stop-color="#7a0d09"/>
+    </linearGradient>
+    <linearGradient id="smoke" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7d8594" stop-opacity="0.55"/>
+      <stop offset="0.5" stop-color="#3b414c" stop-opacity="0.7"/>
+      <stop offset="1" stop-color="#1b1e24" stop-opacity="0.9"/>
+    </linearGradient>
+    <radialGradient id="rubber" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0.58" stop-color="#2b2c30"/>
+      <stop offset="0.8" stop-color="#18191b"/>
+      <stop offset="0.95" stop-color="#232427"/>
+      <stop offset="1" stop-color="#0b0b0c"/>
+    </radialGradient>
+    <radialGradient id="steel" cx="0.38" cy="0.32" r="0.75">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="0.3" stop-color="#d4d7db"/>
+      <stop offset="0.62" stop-color="#8d9196"/>
+      <stop offset="0.85" stop-color="#5b5f64"/>
+      <stop offset="1" stop-color="#a9adb2"/>
+    </radialGradient>
+    <radialGradient id="drum" cx="0.4" cy="0.35" r="0.7">
+      <stop offset="0" stop-color="#e3e5e8"/>
+      <stop offset="0.6" stop-color="#9a9ea4"/>
+      <stop offset="1" stop-color="#5d6166"/>
+    </radialGradient>
+
+    <!-- shared outlines -->
+    <path id="bodyP" d="M885 1000 C878 900 880 760 905 680 L240 690 C190 692 120 712 84 752 C60 780 52 830 54 872 C56 900 72 925 100 940 L177 940 A240 240 0 0 1 582 970 L885 1000 Z"/>
+    <path id="legP" d="M1290 1006 C1325 1000 1340 975 1338 930 C1330 840 1295 740 1280 606 C1270 520 1248 470 1225 445 L1388 445 C1395 500 1408 560 1420 606 C1432 680 1452 760 1467 796 C1478 830 1462 880 1440 905 C1410 950 1392 990 1385 1012 L1290 1012 Z"/>
+    <path id="fenderP" d="M1462 800 C1500 760 1545 745 1595 748 C1665 752 1730 800 1772 868 C1786 890 1790 905 1782 916 C1770 918 1760 909 1754 899 C1720 855 1660 838 1590 840 C1520 842 1468 870 1440 905 Z"/>
+    <path id="seatP" d="M920 675 C952 662 960 580 930 538 C912 520 888 516 860 516 C760 515 640 522 560 524 C470 525 400 516 330 508 C290 504 262 504 248 508 C228 514 220 545 224 600 L236 672 Z"/>
+    <path id="headP" d="M1170 262 C1185 240 1240 228 1320 228 L1395 231 C1410 233 1418 245 1418 262 L1412 430 C1410 452 1398 462 1380 464 L1290 470 C1262 470 1240 458 1226 436 L1176 300 C1170 285 1166 272 1170 262 Z"/>
+    <clipPath id="bodyC"><use href="#bodyP"/></clipPath>
+    <clipPath id="legC"><use href="#legP"/></clipPath>
+    <clipPath id="fenderC"><use href="#fenderP"/></clipPath>
+    <clipPath id="seatC"><use href="#seatP"/></clipPath>
+    <clipPath id="headC"><use href="#headP"/></clipPath>
+
+    <!-- chrome tube paths (stroked in layers below) -->
+    <path id="sideGuard" d="M900 1012 C760 1006 560 1000 300 990 C200 986 130 960 100 930 C88 918 80 905 80 890"/>
+    <path id="frontGuard" d="M1392 1004 C1450 970 1510 925 1580 902 C1660 878 1740 878 1792 902"/>
+    <path id="carrierA" d="M262 668 C220 666 175 645 132 604"/>
+    <path id="carrierB" d="M96 760 C92 720 92 680 102 640"/>
+    <path id="lever" d="M1186 268 C1150 265 1112 268 1078 276"/>
+
+    <!-- a road wheel: tyre with tread and sidewall lettering, split steel rim, brake drum -->
+    <symbol id="wheel" viewBox="-220 -220 440 440" overflow="visible">
+      <circle r="217" fill="url(#rubber)"/>
+      <circle r="212" fill="none" stroke="#242528" stroke-width="9" stroke-dasharray="15 9"/>
+      <circle r="217" fill="none" stroke="#050506" stroke-width="3"/>
+      <circle r="194" fill="none" stroke="#303135" stroke-width="2"/>
+      <path id="sw" d="M-172 0 A172 172 0 1 1 172 0" fill="none"/>
+      <text font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" letter-spacing="3" fill="#2a2b2e">
+        <textPath href="#sw" startOffset="18%">90/100-10  4PR  TUBELESS</textPath>
+      </text>
+      <circle r="130" fill="#44474c"/>
+      <circle r="127" fill="url(#steel)"/>
+      <circle r="123" fill="none" stroke="#ffffff" stroke-opacity="0.75" stroke-width="3"/>
+      <circle r="112" fill="none" stroke="#3b3e43" stroke-width="7"/>
+      <circle r="104" fill="url(#steel)"/>
+      <g fill="#2b2d31">
+        <ellipse cx="0" cy="-80" rx="15" ry="11"/><ellipse cx="80" cy="0" rx="11" ry="15"/>
+        <ellipse cx="0" cy="80" rx="15" ry="11"/><ellipse cx="-80" cy="0" rx="11" ry="15"/>
+      </g>
+      <circle r="60" fill="url(#drum)"/>
+      <circle r="60" fill="none" stroke="#4a4d52" stroke-width="4"/>
+      <g stroke="#7d8187" stroke-width="3">
+        <path d="M0 -58 L0 -40"/><path d="M41 -41 L28 -28"/><path d="M58 0 L40 0"/><path d="M41 41 L28 28"/>
+        <path d="M0 58 L0 40"/><path d="M-41 41 L-28 28"/><path d="M-58 0 L-40 0"/><path d="M-41 -41 L-28 -28"/>
+      </g>
+      <circle r="22" fill="#2e3034"/>
+      <circle r="11" fill="url(#drum)"/>
+      <rect x="92" y="-6" width="26" height="12" rx="3" fill="#8d9196" transform="rotate(-62)"/>
+      <path d="M-200 -40 A204 204 0 0 1 -60 -195" fill="none" stroke="#ffffff" stroke-opacity="0.11" stroke-width="16" filter="url(#b7)"/>
+      <path d="M-96 -70 A118 118 0 0 1 40 -112" fill="none" stroke="#ffffff" stroke-opacity="0.9" stroke-width="4" filter="url(#b1)"/>
+    </symbol>
+  </defs>
+
+  <!-- ================= REAR ================= -->
+  <!-- inner wheel housing, seen between the arch and the tyre -->
+  <path d="M177 940 A240 240 0 0 1 582 970 Z" fill="#070708"/>
+  <use href="#wheel" x="153" y="866" width="434" height="434"/>
+  <!-- engine block behind the transmission cover -->
+  <path d="M560 966 L885 1000 L880 1066 L400 1066 Z" fill="#151619"/>
+
+  <!-- spare wheel, upright behind the seat, its rim turned to the rear -->
+  <g>
+    <use href="#carrierB" fill="none" stroke="#2b2d31" stroke-width="16" stroke-linecap="round"/>
+    <use href="#carrierB" fill="none" stroke="#9a9da2" stroke-width="11" stroke-linecap="round"/>
+    <use href="#carrierB" fill="none" stroke="#f4f5f6" stroke-width="3" stroke-linecap="round" transform="translate(-3 0)"/>
+    <ellipse cx="114" cy="600" rx="107" ry="217" fill="#121315"/>
+    <clipPath id="spareC"><ellipse cx="114" cy="600" rx="107" ry="217"/></clipPath>
+    <g clip-path="url(#spareC)">
+      <ellipse cx="150" cy="600" rx="78" ry="214" fill="none" stroke="#25262a" stroke-width="5" stroke-dasharray="12 10"/>
+      <ellipse cx="172" cy="600" rx="62" ry="212" fill="none" stroke="#1d1e21" stroke-width="4" stroke-dasharray="8 14"/>
+      <path d="M190 440 C214 520 214 680 190 760" fill="none" stroke="#ffffff" stroke-opacity="0.12" stroke-width="16" filter="url(#b7)"/>
+    </g>
+    <ellipse cx="76" cy="600" rx="68" ry="216" fill="url(#rubber)"/>
+    <ellipse cx="76" cy="600" rx="68" ry="216" fill="none" stroke="#050506" stroke-width="3"/>
+    <ellipse cx="73" cy="600" rx="42" ry="130" fill="#43464b"/>
+    <ellipse cx="73" cy="600" rx="40" ry="127" fill="url(#steel)"/>
+    <ellipse cx="73" cy="600" rx="30" ry="98" fill="none" stroke="#3b3e43" stroke-width="5"/>
+    <ellipse cx="72" cy="600" rx="18" ry="58" fill="url(#drum)"/>
+    <ellipse cx="72" cy="600" rx="7" ry="20" fill="#2e3034"/>
+    <path d="M50 500 C56 470 66 456 78 452" fill="none" stroke="#ffffff" stroke-opacity="0.85" stroke-width="3" filter="url(#b1)"/>
+  </g>
+
+  <!-- rear body: gloss black, with the ZX flash under a clear coat -->
+  <use href="#bodyP" fill="url(#paint)"/>
+  <g clip-path="url(#bodyC)">
+    <!-- the seat's shadow on the body -->
+    <path d="M236 684 L918 684" stroke="#000" stroke-opacity="0.85" stroke-width="22" filter="url(#b7)"/>
+    <!-- flash decal: yellow, orange, red, magenta pinstripe; rising toward the tail -->
+    <path d="M716 948 C600 900 420 832 196 760 L190 786 C420 852 600 914 719 957 Z" fill="#f6c51f"/>
+    <path d="M719 962 C600 920 420 862 192 798 L188 822 C420 882 600 936 721 968 Z" fill="#f07a14"/>
+    <path d="M721 974 C600 942 420 894 190 834 L190 862 C420 917 600 957 723 980 Z" fill="#d42a1c"/>
+    <path d="M723 988 C600 968 420 934 194 876" fill="none" stroke="#e8457e" stroke-width="5"/>
+    <g transform="translate(452 878) rotate(-15) skewX(-16)">
+      <text font-family="Arial Black, Arial, Helvetica, sans-serif" font-weight="900" font-size="72" fill="#fbf7ea" stroke="#0b0b0c" stroke-width="5" paint-order="stroke" letter-spacing="-2">ZX</text>
+    </g>
+    <!-- clear coat: studio softbox reflections pass over paint and decal alike -->
+    <path d="M230 706 C400 698 700 697 904 704 L904 742 C700 734 400 736 230 752 Z" fill="#ffffff" opacity="0.28" filter="url(#b7)"/>
+    <path d="M250 716 C450 707 700 706 890 711" fill="none" stroke="#ffffff" stroke-opacity="0.85" stroke-width="3" filter="url(#b1)"/>
+    <path d="M200 790 C420 772 700 770 900 780 L900 812 C700 800 420 806 200 826 Z" fill="#ffffff" opacity="0.06" filter="url(#b14)"/>
+    <ellipse cx="112" cy="756" rx="56" ry="24" fill="#ffffff" opacity="0.32" filter="url(#b7)" transform="rotate(-30 112 756)"/>
+    <path d="M66 800 C58 830 58 860 64 890" fill="none" stroke="#ffffff" stroke-opacity="0.35" stroke-width="5" filter="url(#b3)"/>
+    <path d="M895 700 C886 780 886 900 893 995" fill="none" stroke="#ffffff" stroke-opacity="0.3" stroke-width="4" filter="url(#b3)"/>
+    <path d="M110 938 L580 966 L885 996" fill="none" stroke="#b9b2a5" stroke-opacity="0.35" stroke-width="10" filter="url(#b7)"/>
+    <!-- occlusion in the wheel arch -->
+    <path d="M177 940 A240 240 0 0 1 582 970" fill="none" stroke="#000" stroke-opacity="0.8" stroke-width="18" filter="url(#b7)"/>
+  </g>
+  <!-- grey inner panel catching light on the body's front face -->
+  <path d="M885 1000 C878 900 880 760 905 680 L916 682 C893 760 890 900 898 1000 Z" fill="url(#greyPlastic)"/>
+
+  <!-- tail lamp (red over amber) and the number-plate bracket -->
+  <path d="M60 790 C54 805 52 830 54 848 L94 846 C89 830 89 808 97 792 Z" fill="url(#ruby)"/>
+  <path d="M55 852 C56 862 60 872 66 880 L99 874 C93 866 91 858 93 850 Z" fill="url(#amber)"/>
+  <path d="M62 796 C58 810 57 828 58 842" fill="none" stroke="#ffffff" stroke-opacity="0.7" stroke-width="3" filter="url(#b1)"/>
+  <path d="M64 922 L102 922 L96 1012 L58 1012 Z" fill="#101113"/>
+  <rect x="64" y="984" width="28" height="16" rx="3" fill="#c0340f"/>
+
+  <!-- transmission cover (left side), over the rear hub, with the kick-start lever -->
+  <path d="M300 1060 C300 1020 335 1000 380 998 L700 985 C780 982 850 990 880 1010 C900 1030 885 1065 840 1072 L420 1110 C350 1118 300 1100 300 1060 Z" fill="url(#castDark)"/>
+  <path d="M312 1040 C320 1012 350 1003 380 1002 L700 989 C770 987 840 994 872 1012" fill="none" stroke="#9fa3a9" stroke-opacity="0.8" stroke-width="3" filter="url(#b1)"/>
+  <g stroke="#17181b" stroke-width="4" opacity="0.8">
+    <path d="M470 1024 L800 1012"/><path d="M470 1044 L810 1032"/><path d="M470 1064 L790 1052"/>
+  </g>
+  <g fill="#6c7076"><circle cx="402" cy="1014" r="7"/><circle cx="846" cy="1022" r="7"/><circle cx="820" cy="1060" r="7"/><circle cx="430" cy="1096" r="7"/></g>
+  <circle cx="370" cy="1083" r="38" fill="url(#drum)"/>
+  <circle cx="370" cy="1083" r="38" fill="none" stroke="#3a3c41" stroke-width="4"/>
+  <circle cx="370" cy="1083" r="14" fill="#2b2d31"/>
+  <path d="M800 1046 L732 1010" stroke="#141517" stroke-width="16" stroke-linecap="round"/>
+  <path d="M732 1010 L700 1012" stroke="#2c2e32" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="800" cy="1046" r="11" fill="url(#drum)"/>
+
+  <!-- chrome side guard, across the top of the rear wheel and up to the tail -->
+  <use href="#sideGuard" fill="none" stroke="#202226" stroke-width="20" stroke-linecap="round"/>
+  <use href="#sideGuard" fill="none" stroke="#8e9297" stroke-width="15" stroke-linecap="round"/>
+  <use href="#sideGuard" fill="none" stroke="#d9dbde" stroke-width="7" stroke-linecap="round" transform="translate(0 -3)"/>
+  <use href="#sideGuard" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" transform="translate(0 -5)"/>
+
+  <!-- seat: long and thick, piped, KINETIC on its flank -->
+  <use href="#seatP" fill="url(#vinyl)"/>
+  <g clip-path="url(#seatC)">
+    <path d="M922 560 C910 534 888 530 860 530 C760 529 640 536 560 538 C470 539 400 530 330 522 C290 518 262 518 252 522" fill="none" stroke="#4d4f55" stroke-width="3"/>
+    <path d="M262 514 C400 522 470 532 560 532 C640 530 760 523 900 526" fill="none" stroke="#ffffff" stroke-opacity="0.16" stroke-width="20" filter="url(#b7)"/>
+    <path d="M300 511 C400 518 470 527 560 527 C640 525 760 519 870 520" fill="none" stroke="#ffffff" stroke-opacity="0.32" stroke-width="3" filter="url(#b1)"/>
+    <path d="M930 545 C948 580 946 630 928 662" fill="none" stroke="#ffffff" stroke-opacity="0.18" stroke-width="8" filter="url(#b3)"/>
+    <path d="M232 660 L918 664" stroke="#000" stroke-opacity="0.6" stroke-width="14" filter="url(#b3)"/>
+    <text x="268" y="616" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="34" letter-spacing="8" fill="#9ea1a6" opacity="0.9">KINETIC</text>
+    <rect x="236" y="0" width="700" height="700" fill="#000" filter="url(#grain)"/>
+  </g>
+  <path d="M238 668 L918 672 L916 682 L240 680 Z" fill="#26272b"/>
+  <!-- grab rail and the spare's carrier -->
+  <use href="#carrierA" fill="none" stroke="#202226" stroke-width="18" stroke-linecap="round"/>
+  <use href="#carrierA" fill="none" stroke="#8e9297" stroke-width="13" stroke-linecap="round"/>
+  <use href="#carrierA" fill="none" stroke="#e3e5e7" stroke-width="5" stroke-linecap="round" transform="translate(0 -3)"/>
+
+  <!-- ================= MIDDLE ================= -->
+  <!-- centre stand (folded) -->
+  <path d="M768 1050 L704 1104 L716 1114 L782 1060 Z" fill="#141517"/>
+  <rect x="690" y="1100" width="40" height="12" rx="4" fill="#1f2023"/>
+  <!-- floor: black side skirt, grey ribbed mat, aluminium edge -->
+  <path d="M880 1000 L1385 1010 C1392 1030 1378 1050 1350 1055 L920 1052 C895 1050 880 1035 880 1000 Z" fill="url(#paint)"/>
+  <path d="M920 1040 L1330 1044" stroke="#ffffff" stroke-opacity="0.12" stroke-width="6" filter="url(#b3)"/>
+  <path d="M884 992 L1300 998 L1300 1008 L884 1003 Z" fill="#6f7277"/>
+  <path d="M890 997 L1294 1003" stroke="#43464b" stroke-width="3" stroke-dasharray="10 8"/>
+  <path d="M884 1006 L1384 1013" stroke="#e6e8ea" stroke-width="3"/>
+
+  <!-- ================= FRONT ================= -->
+  <!-- leg shield: slim, nearly upright; gloss black outside, grey on the rider's side -->
+  <use href="#legP" fill="url(#paintH)"/>
+  <g clip-path="url(#legC)">
+    <path d="M1290 1006 C1325 1000 1340 975 1338 930 C1330 840 1295 740 1280 606 C1270 520 1248 470 1225 445 L1243 445 C1265 470 1286 520 1296 606 C1310 740 1346 840 1354 930 C1356 975 1342 1000 1306 1010 Z" fill="url(#greyPlastic)"/>
+    <path d="M1270 470 C1292 560 1312 720 1346 900" fill="none" stroke="#ffffff" stroke-opacity="0.22" stroke-width="20" filter="url(#b7)"/>
+    <path d="M1392 470 C1402 560 1422 660 1452 770" fill="none" stroke="#ffffff" stroke-opacity="0.6" stroke-width="3" filter="url(#b1)"/>
+    <path d="M1240 458 L1410 452" stroke="#000" stroke-opacity="0.8" stroke-width="22" filter="url(#b7)"/>
+    <!-- small ZX flash near the top -->
+    <path d="M1302 528 L1392 512 L1396 521 L1304 538 Z" fill="#f6c51f"/>
+    <path d="M1306 543 L1398 526 L1401 535 L1308 553 Z" fill="#f07a14"/>
+    <path d="M1310 558 L1403 540 L1406 549 L1312 568 Z" fill="#d42a1c"/>
+  </g>
+
+  <!-- front wheel and leading-link suspension -->
+  <use href="#wheel" x="1368" y="866" width="434" height="434"/>
+  <path d="M1515 850 L1546 850 L1566 1012 L1536 1014 Z" fill="#141518"/>
+  <path d="M1522 856 L1532 856 L1550 1006 L1542 1006 Z" fill="#ffffff" opacity="0.12"/>
+  <path d="M1548 1000 L1600 1076 L1576 1092 L1528 1018 Z" fill="#1b1c1f"/>
+  <rect x="1552" y="900" width="18" height="80" rx="6" fill="url(#drum)" transform="rotate(-8 1561 940)"/>
+  <path d="M1556 1050 C1500 1040 1440 1000 1410 960" fill="none" stroke="#111214" stroke-width="5"/>
+
+  <!-- front fender with its stripes -->
+  <use href="#fenderP" fill="url(#paint)"/>
+  <g clip-path="url(#fenderC)">
+    <path d="M1556 764 C1636 764 1708 802 1750 862" fill="none" stroke="#f6c51f" stroke-width="9"/>
+    <path d="M1552 776 C1630 776 1700 814 1740 872" fill="none" stroke="#f07a14" stroke-width="9"/>
+    <path d="M1548 788 C1624 788 1692 826 1730 882" fill="none" stroke="#d42a1c" stroke-width="9"/>
+    <path d="M1500 772 C1560 752 1650 754 1730 806" fill="none" stroke="#ffffff" stroke-opacity="0.7" stroke-width="3" filter="url(#b1)"/>
+    <path d="M1480 790 C1560 762 1660 766 1750 840" fill="none" stroke="#ffffff" stroke-opacity="0.18" stroke-width="18" filter="url(#b7)"/>
+  </g>
+
+  <!-- chrome crash guard round the front -->
+  <use href="#frontGuard" fill="none" stroke="#202226" stroke-width="18" stroke-linecap="round"/>
+  <use href="#frontGuard" fill="none" stroke="#8e9297" stroke-width="13" stroke-linecap="round"/>
+  <use href="#frontGuard" fill="none" stroke="#dcdee1" stroke-width="6" stroke-linecap="round" transform="translate(0 -3)"/>
+  <use href="#frontGuard" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" transform="translate(0 -5)"/>
+
+  <!-- handlebar cowl: smoked visor, black housing, wrap-round amber indicator -->
+  <path d="M1388 234 L1360 144 C1358 136 1364 131 1371 133 L1381 137 C1387 139 1390 145 1391 151 L1410 236 Z" fill="url(#smoke)"/>
+  <path d="M1384 140 L1405 232" fill="none" stroke="#ffffff" stroke-opacity="0.55" stroke-width="2.5" filter="url(#b1)"/>
+  
+  <use href="#headP" fill="url(#paint)"/>
+  <g clip-path="url(#headC)">
+    <path d="M1350 252 L1420 255 L1416 372 L1352 370 C1343 340 1342 285 1350 252 Z" fill="url(#amber)"/>
+    <g stroke="#b9650a" stroke-opacity="0.55" stroke-width="2"><path d="M1366 258 L1366 368"/><path d="M1382 258 L1382 370"/><path d="M1398 258 L1398 370"/><path d="M1352 300 L1418 302"/><path d="M1350 336 L1418 338"/></g>
+    <path d="M1356 262 L1412 264" stroke="#ffffff" stroke-opacity="0.8" stroke-width="4" filter="url(#b1)"/>
+    <path d="M1352 372 L1418 374 L1416 382 L1352 380 Z" fill="#c9ccd0"/>
+    <path d="M1185 250 C1240 240 1320 238 1400 242" fill="none" stroke="#ffffff" stroke-opacity="0.6" stroke-width="4" filter="url(#b1)"/>
+    <path d="M1190 270 C1250 262 1320 262 1345 266" fill="none" stroke="#ffffff" stroke-opacity="0.16" stroke-width="18" filter="url(#b7)"/>
+    <path d="M1200 440 L1400 450" stroke="#ffffff" stroke-opacity="0.12" stroke-width="8" filter="url(#b3)"/>
+  </g>
+  <!-- switch housing, grip and brake lever -->
+  <rect x="1160" y="268" width="34" height="52" rx="9" fill="#121315"/>
+  <path d="M1172 282 L1090 290 C1078 291 1072 300 1074 310 C1076 320 1084 324 1094 323 L1176 316 Z" fill="#141517"/>
+  <path d="M1160 286 L1086 293 M1160 296 L1082 302 M1160 306 L1084 312" stroke="#2a2b2f" stroke-width="3"/>
+  <use href="#lever" fill="none" stroke="#2a2c30" stroke-width="10" stroke-linecap="round"/>
+  <use href="#lever" fill="none" stroke="#c6c9cd" stroke-width="5" stroke-linecap="round"/>
+  <!-- mirror: round, on a tall stalk -->
+  <path d="M1246 232 C1244 190 1240 140 1236 106" fill="none" stroke="#18191c" stroke-width="10" stroke-linecap="round"/>
+  <path d="M1243 226 C1241 186 1238 140 1234 110" fill="none" stroke="#ffffff" stroke-opacity="0.25" stroke-width="2"/>
+  <ellipse cx="1233" cy="70" rx="25" ry="57" fill="#0e0f11" transform="rotate(-4 1233 70)"/>
+  <ellipse cx="1240" cy="70" rx="12" ry="46" fill="#6b7480" transform="rotate(-4 1240 70)"/>
+  <ellipse cx="1240" cy="62" rx="5" ry="26" fill="#c9d2dc" opacity="0.7" transform="rotate(-4 1240 62)"/>
+  <ellipse cx="1233" cy="70" rx="25" ry="57" fill="none" stroke="#9a9ea4" stroke-width="3" transform="rotate(-4 1233 70)"/>
+</svg>

@@ -22,6 +22,7 @@ export default function FlowJourneyD() {
   const hero = useRef<HTMLDivElement>(null);
   const flow = useRef<HTMLDivElement>(null);
   const cue = useRef<HTMLButtonElement>(null);
+  const fill = useRef<HTMLSpanElement>(null);
   const controller = useRef<DioramaController | null>(null);
   const [active, setActive] = useState(0);
   const [fallback, setFallback] = useState(false);
@@ -53,7 +54,7 @@ export default function FlowJourneyD() {
             flow.current.style.pointerEvents = o > 0.5 ? "auto" : "none";
           }
           if (cue.current) cue.current.style.visibility = k > 0.25 ? "hidden" : "visible";
-          gsap.set(".fd-fill", { scaleX: p });
+          if (fill.current) fill.current.style.transform = `scaleX(${p})`;
         },
       });
       controller.current = ctl;
@@ -184,7 +185,7 @@ export default function FlowJourneyD() {
       <div className="pointer-events-none absolute bottom-12 right-12 hidden w-56 items-center gap-3 text-[12px] font-medium text-d-text/70 md:flex">
         <span>{company.since}</span>
         <span className="relative h-px flex-1 bg-d-text/15">
-          <span className="fd-fill absolute inset-0 origin-left scale-x-0 bg-d-text" />
+          <span ref={fill} className="fd-fill absolute inset-0 origin-left scale-x-0 bg-d-text" />
         </span>
         <span>2025</span>
       </div>

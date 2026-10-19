@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { gsap, reducedMotion } from "@/lib/gsap";
+import { reducedMotion } from "@/lib/gsap";
 import { categoryMeta, milestones, type Category } from "@/lib/content";
 import { mountDiorama, type DioramaController } from "./engine";
 
@@ -22,6 +22,7 @@ export default function JourneyDiorama() {
   const [tod, setTod] = useState("Dawn");
   const [fallback, setFallback] = useState(false);
   const listWrap = useRef<HTMLDivElement>(null);
+  const fill = useRef<HTMLSpanElement>(null);
   const [panelH, setPanelH] = useState(420);
 
   useEffect(() => {
@@ -47,7 +48,9 @@ export default function JourneyDiorama() {
           setActive(i);
           setTod(label);
         },
-        onProgress: (p) => gsap.set(".jd-fill", { scaleX: p }),
+        onProgress: (p) => {
+          if (fill.current) fill.current.style.transform = `scaleX(${p})`;
+        },
       });
       controller.current = ctl;
       return () => ctl.destroy();
@@ -200,7 +203,7 @@ export default function JourneyDiorama() {
         <div className="mt-3 flex items-center gap-3 text-xs text-cream/70">
           <span>1960</span>
           <span className="relative h-[2px] flex-1 bg-white/20">
-            <span className="jd-fill absolute inset-0 origin-left scale-x-0 bg-gold" />
+            <span ref={fill} className="jd-fill absolute inset-0 origin-left scale-x-0 bg-gold" />
           </span>
           <span>2025</span>
         </div>

@@ -2,11 +2,34 @@
 import { motion } from "framer-motion";
 import { Eyebrow, Headline, ease } from "./ui";
 
+// Brands and their best-known models (as sold through each dealership).
 const groups = [
-  { label: "Home appliances", brands: ["Samsung Exclusive Plaza"] },
-  { label: "Two-wheelers", brands: ["Hero MotoCorp", "Hero Premia", "Royal Enfield", "Ather Electric", "Kinetic Honda"] },
-  { label: "Passenger cars", brands: ["Maruti Suzuki Arena", "Nexa"] },
-  { label: "Commercial vehicles", brands: ["Tata Commercial", "Tata SCV", "Maruti Commercial"] },
+  { label: "Home appliances", brands: [{ b: "Samsung Exclusive Plaza", m: "Bespoke refrigerators · Neo QLED TVs · washers" }] },
+  {
+    label: "Two-wheelers",
+    brands: [
+      { b: "Hero MotoCorp", m: "Splendor+ · Xtreme 125R" },
+      { b: "Hero Premia", m: "Karizma XMR · Mavrick 440" },
+      { b: "Royal Enfield", m: "Classic 350 · Hunter 350" },
+      { b: "Ather Electric", m: "Rizta · 450X" },
+      { b: "Kinetic Honda", m: "Since 1990" },
+    ],
+  },
+  {
+    label: "Passenger cars",
+    brands: [
+      { b: "Maruti Suzuki Arena", m: "Swift · Brezza · Dzire" },
+      { b: "Nexa", m: "Grand Vitara · Fronx · Baleno" },
+    ],
+  },
+  {
+    label: "Commercial vehicles",
+    brands: [
+      { b: "Tata SCV", m: "Ace · Intra" },
+      { b: "Tata Commercial", m: "Signa · Ultra" },
+      { b: "Maruti Commercial", m: "Super Carry" },
+    ],
+  },
 ];
 
 // A dashed partner grid (brand names set as type; manufacturers' logos need their permission).
@@ -28,7 +51,7 @@ export default function PartnersX() {
           <div key={g.label} className="grid gap-4 md:grid-cols-[200px_1fr]">
             <p className="micro pt-3 text-x-mute">{g.label}</p>
             <div className="grid grid-cols-2 border-l border-t border-dashed border-[#cfcfca] sm:grid-cols-3 lg:grid-cols-5">
-              {g.brands.map((b, i) => (
+              {g.brands.map(({ b, m }, i) => (
                 <motion.div
                   key={b}
                   initial={{ opacity: 0 }}
@@ -37,7 +60,10 @@ export default function PartnersX() {
                   transition={{ duration: 0.8, delay: i * 0.06, ease }}
                   className="group grid aspect-[2/1] place-items-center border-b border-r border-dashed border-[#cfcfca] px-4 text-center transition-colors duration-500 hover:bg-x-ink"
                 >
-                  <span className="wide text-[clamp(12px,1.1vw,16px)] !leading-[1.15] text-x-ink transition-colors duration-500 group-hover:text-white">{b}</span>
+                  <span>
+                    <span className="wide block text-[clamp(12px,1.1vw,16px)] !leading-[1.15] text-x-ink transition-colors duration-500 group-hover:text-white">{b}</span>
+                    <span className="micro mt-2 block !text-[9px] text-x-mute transition-colors duration-500 group-hover:text-x-gold">{m}</span>
+                  </span>
                 </motion.div>
               ))}
             </div>

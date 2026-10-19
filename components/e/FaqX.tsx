@@ -1,10 +1,11 @@
 "use client";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { faq } from "@/lib/content";
+import { useContent } from "./content";
 import { ease } from "./ui";
 
 export default function FaqX() {
+  const { faq } = useContent();
   const [open, setOpen] = useState(0);
   return (
     <section id="faq" className="grid gap-10 px-4 py-28 md:px-8 md:py-40 lg:grid-cols-[1fr_1.6fr_0.8fr]">
@@ -16,7 +17,7 @@ export default function FaqX() {
         {faq.map((f, i) => {
           const on = open === i;
           return (
-            <li key={f.q} className="border-b border-x-line">
+            <li key={i} className="border-b border-x-line">
               <button onClick={() => setOpen(on ? -1 : i)} aria-expanded={on} className="grid w-full grid-cols-[40px_1fr_auto] items-center gap-3 py-6 text-left">
                 <span className="micro text-x-grey">{String(i + 1).padStart(2, "0")}</span>
                 <span className="text-[16px] font-semibold md:text-[18px]">{f.q}</span>

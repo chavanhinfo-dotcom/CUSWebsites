@@ -1,16 +1,19 @@
 "use client";
 import { motion } from "framer-motion";
-import { company, presence, verticals } from "@/lib/content";
+import { verticals } from "@/lib/content";
 import { scrollToHash } from "@/lib/lenis";
+import { statesOf, useContent } from "./content";
 import { ease } from "./ui";
+import { LOGO_ALT, LOGO_CUTOUT } from "./logo";
 
 // Dark call to action with radiating rings, then a white footer closed by a giant wordmark.
 export default function FooterX() {
+  const { company, districts: places } = useContent();
   const go = (e: React.MouseEvent, href: string) => {
     e.preventDefault();
     scrollToHash(href);
   };
-  const districts = presence.flatMap((s) => s.districts.map((d) => d.name));
+  const districts = places.map((d) => d.name);
   const marquee = ["Home Appliances", "Two-Wheelers", "Passenger Cars", "Commercial Vehicles", ...districts];
 
   return (
@@ -40,13 +43,14 @@ export default function FooterX() {
       <div className="bg-x-white px-4 pt-20 md:px-8">
         <div className="grid gap-12 md:grid-cols-[1.2fr_1fr_1fr_1fr]">
           <div>
-            <img src="/brand/logo-full.png" alt={company.name} className="w-40" />
+            {/* the logo exactly as supplied */}
+            <img src={LOGO_CUTOUT} alt={LOGO_ALT} loading="lazy" decoding="async" className="w-48" />
             <p className="micro mt-6 text-x-mute">One group.<br />Every road ahead.</p>
           </div>
           <div>
             <p className="micro mb-4 text-x-grey">Group</p>
             <ul className="space-y-2 text-[14px]">
-              {[["#about", "About"], ["#journey", "Journey"], ["#leadership", "Leadership"], ["#partners", "Partners"], ["#faq", "F.A.Q"]].map(([h, l]) => (
+              {[["#about", "About"], ["#journey", "Journey"], ["#leadership", "Leadership"], ["#gallery", "Gallery"], ["#faq", "F.A.Q"]].map(([h, l]) => (
                 <li key={h}><a href={h} onClick={(e) => go(e, h)} className="transition-colors hover:text-x-gold">{l}</a></li>
               ))}
             </ul>
@@ -57,9 +61,15 @@ export default function FooterX() {
           </div>
           <div>
             <p className="micro mb-4 text-x-grey">Head office</p>
-            <p className="text-[14px] leading-relaxed">{company.hq}</p>
+            <p className="text-[14px] leading-relaxed">{company.address || company.hq}</p>
+            {(company.phone || company.email) && (
+              <p className="mt-3 space-y-1 text-[14px] leading-relaxed">
+                {company.phone && <a href={`tel:${company.phone.replace(/[^\d+]/g, "")}`} className="block transition-colors hover:text-x-gold">{company.phone}</a>}
+                {company.email && <a href={`mailto:${company.email}`} className="block transition-colors hover:text-x-gold">{company.email}</a>}
+              </p>
+            )}
             <p className="micro mb-4 mt-8 text-x-grey">Operating regions</p>
-            <p className="text-[14px] leading-relaxed">{presence.map((s) => s.state).join(" / ")}</p>
+            <p className="text-[14px] leading-relaxed">{statesOf(places).join(" / ")}</p>
           </div>
         </div>
 
@@ -73,9 +83,10 @@ export default function FooterX() {
 
         <div className="micro flex flex-col gap-3 py-6 text-x-mute md:flex-row md:justify-between">
           <span>© {new Date().getFullYear()} {company.name}. {company.motto}</span>
-          <span>Brand names are trademarks of their respective owners · Photography: Unsplash</span>
+          <span>Brand names and product renders © their respective manufacturers · Photography: Unsplash</span>
         </div>
-        <p className="wide select-none pb-4 text-center text-[17.5vw] !leading-[0.8] text-[#e7e7e3]" aria-hidden>Chavan</p>
+        {/* (a touch under the full width, and clipped sideways only, so it never makes the page scroll sideways) */}
+        <p className="wide select-none overflow-x-clip pb-4 text-center text-[16.5vw] !leading-[0.8] text-[#e7e7e3]" aria-hidden>Chavan</p>
       </div>
     </footer>
   );

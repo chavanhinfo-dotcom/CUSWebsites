@@ -121,7 +121,7 @@ export function mountDiorama(opts: DioramaOptions): DioramaController {
   const snap = new URLSearchParams(window.location.search).has("snap");
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, mobile ? 1.5 : 1.75));
   renderer.shadowMap.enabled = true;
-  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  renderer.shadowMap.type = THREE.PCFShadowMap;
   renderer.toneMapping = mono ? THREE.NeutralToneMapping : THREE.ACESFilmicToneMapping;
   renderer.toneMappingExposure = mono ? 1 : 0.98;
   host.appendChild(renderer.domElement);

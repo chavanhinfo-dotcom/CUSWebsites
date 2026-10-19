@@ -31,34 +31,42 @@ export function Vehicle({ cat }: { cat: Category }) {
           <rect x="8" y="-48" width="8" height="3" rx="1" fill="#fff6d6" />
         </svg>
       );
-    case "two-wheelers":
+    case "two-wheelers": // Royal Enfield Classic 350 from above: teardrop tank, wide bars, split seats
       return (
-        <svg viewBox="-16 -40 32 80" className="h-[80px] w-[32px] overflow-visible">
-          <rect x="-5" y="-36" width="10" height="16" rx="5" fill="#1b1b1d" />
-          <rect x="-5" y="22" width="10" height="16" rx="5" fill="#1b1b1d" />
-          <rect x="-9" y="-22" width="18" height="44" rx="9" fill="#c9a24a" />
-          <path d="M-15 -24 H15" stroke="#2a2a2a" strokeWidth="3" strokeLinecap="round" />
-          <ellipse cx="0" cy="2" rx="10" ry="12" fill="#2d4a7a" />
-          <circle cx="0" cy="-6" r="7" fill="#c9a24a" stroke="#1b1b1d" strokeWidth="1.5" />
+        <svg viewBox="-18 -46 36 92" className="h-[92px] w-[36px] overflow-visible">
+          <rect x="-4.5" y="-44" width="9" height="20" rx="4.5" fill="#1b1b1d" />
+          <rect x="-5" y="24" width="10" height="20" rx="5" fill="#1b1b1d" />
+          <path d="M-6 -30 Q0 -36 6 -30 L5 -22 H-5 Z" fill="#6b1d1d" />
+          <path d="M-17 -24 H17" stroke="#c4c8cd" strokeWidth="2.5" strokeLinecap="round" />
+          <circle cx="0" cy="-28" r="4.5" fill="#fff5dc" stroke="#1b1b1d" strokeWidth="1.2" />
+          <ellipse cx="0" cy="-12" rx="7.5" ry="11" fill="#6b1d1d" />
+          <ellipse cx="0" cy="-12" rx="2.2" ry="9" fill="#c4c8cd" />
+          <rect x="-6" y="0" width="12" height="11" rx="4" fill="#2a2a2d" />
+          <rect x="-5.5" y="13" width="11" height="10" rx="4" fill="#2a2a2d" />
+          <path d="M-6 26 Q0 31 6 26" stroke="#6b1d1d" strokeWidth="5" fill="none" />
+          <rect x="8" y="4" width="3.5" height="26" rx="1.7" fill="#c4c8cd" />
         </svg>
       );
-    case "cars":
+    case "cars": // Maruti Suzuki Swift from above: red body, floating black roof
       return (
         <svg viewBox="-22 -46 44 92" className="h-[92px] w-[44px] overflow-visible">
-          <rect x="-20" y="-44" width="40" height="88" rx="12" fill="#121214" />
-          <path d="M-16 -22 Q0 -30 16 -22 L14 -10 Q0 -14 -14 -10 Z" fill="#5b6472" />
-          <rect x="-13" y="-8" width="26" height="30" rx="5" fill="#26272b" />
-          <path d="M-14 26 Q0 32 14 26 L13 34 Q0 38 -13 34 Z" fill="#5b6472" />
-          <rect x="-16" y="-45" width="8" height="3" rx="1" fill="#fff6d6" />
-          <rect x="8" y="-45" width="8" height="3" rx="1" fill="#fff6d6" />
-          <rect x="-16" y="42" width="8" height="2.5" rx="1" fill="#c0392b" />
-          <rect x="8" y="42" width="8" height="2.5" rx="1" fill="#c0392b" />
+          <rect x="-20" y="-44" width="40" height="88" rx="14" fill="#b3121c" />
+          <path d="M-16 -18 Q0 -26 16 -18 L14 -6 Q0 -10 -14 -6 Z" fill="#1d2433" />
+          <rect x="-15" y="-6" width="30" height="34" rx="6" fill="#111114" />
+          <path d="M-14 28 Q0 33 14 28 L13 35 Q0 38 -13 35 Z" fill="#1d2433" />
+          <path d="M-12 -40 Q0 -44 12 -40" stroke="#8f0d16" strokeWidth="1.5" fill="none" />
+          <rect x="-17" y="-45" width="9" height="3" rx="1" fill="#fff6d6" />
+          <rect x="8" y="-45" width="9" height="3" rx="1" fill="#fff6d6" />
+          <rect x="-17" y="42" width="7" height="2.5" rx="1" fill="#ff3b30" />
+          <rect x="10" y="42" width="7" height="2.5" rx="1" fill="#ff3b30" />
+          <rect x="-23" y="-12" width="4" height="5" rx="1.5" fill="#111114" />
+          <rect x="19" y="-12" width="4" height="5" rx="1.5" fill="#111114" />
         </svg>
       );
-    case "commercial":
+    case "commercial": // Tata Signa from above
       return (
         <svg viewBox="-24 -80 48 160" className="h-[160px] w-[48px] overflow-visible">
-          <rect x="-21" y="-78" width="42" height="34" rx="6" fill="#121214" />
+          <rect x="-21" y="-78" width="42" height="34" rx="6" fill="#f4f4f1" stroke="#d7d7d2" />
           <path d="M-17 -68 H17 L15 -58 H-15 Z" fill="#5b6472" />
           <rect x="-4" y="-44" width="8" height="6" fill="#2a2a2a" />
           <rect x="-23" y="-38" width="46" height="116" rx="2" fill="#f4f4f1" stroke="#d7d7d2" />
