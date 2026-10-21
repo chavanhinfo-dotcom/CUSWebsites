@@ -1,8 +1,8 @@
 // Floating toggle so the client can compare the design directions.
 // Plain links (full page loads), not next/link: each option runs its own preloader, smooth scroll,
 // ScrollTrigger pins and WebGL scenes, and a fresh document guarantees none of that leaks across pages.
-export default function OptionSwitch({ current }: { current: "a" | "b" | "c" | "d" | "e" }) {
-  const item = (key: "a" | "b" | "c" | "d" | "e", href: string, label: string) => (
+export default function OptionSwitch({ current }: { current: "a" | "b" | "c" | "d" | "e" | "f" | "g" | "h" }) {
+  const item = (key: "a" | "b" | "c" | "d" | "e" | "f" | "g" | "h", href: string, label: string) => (
     <a
       href={href}
       aria-current={current === key ? "page" : undefined}
@@ -21,6 +21,9 @@ export default function OptionSwitch({ current }: { current: "a" | "b" | "c" | "
       {item("c", "/option-c/", "C")}
       {item("d", "/option-d/", "D")}
       {item("e", "/option-e/", "E")}
+      {item("f", "/option-f/", "F")}
+      {item("g", "/option-g/", "G")}
+      {item("h", "/option-h/", "H")}
     </div>
   );
 }

@@ -1,0 +1,42 @@
+/* Option G: a page of tiles. The logo's navy and gold on a soft grey ground; tiles in the logo's own ivory. */
+.g-root {
+  --g-bg: #f1f2f5;
+  --g-tile: #fefefe; /* the logo's ground, so the logo sits on any tile exactly as supplied */
+  --g-navy: #072959;
+  --g-deep: #061c3f;
+  --g-gold: #c78a1f;
+  --g-gold-ink: #8a5d0f;
+  --g-gold-soft: #f6ead3;
+  --g-ink: #0d1626;
+  --g-mute: #667085;
+  --g-line: rgba(7, 41, 89, 0.08);
+  font-family: var(--font-manrope), system-ui, sans-serif;
+  color: var(--g-ink);
+  background: var(--g-bg);
+}
+.g-root ::selection { background: var(--g-navy); color: #fff; }
+
+/* the centred column every section uses */
+.g-wrap { width: 100%; max-width: 1240px; margin-inline: auto; padding-inline: 12px; }
+@media (min-width: 768px) { .g-wrap { padding-inline: 24px; } }
+
+/* a tile */
+.g-tile { background: var(--g-tile); border: 1px solid var(--g-line); border-radius: 28px; }
+
+/* headings and the small gold line above them */
+.g-h { font-weight: 800; letter-spacing: -0.035em; line-height: 1.02; color: var(--g-navy); }
+.g-eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--g-gold); }
+
+/* rows that scroll sideways (the years, the gallery) without a visible scrollbar */
+.g-row { scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+.g-row::-webkit-scrollbar { display: none; }
+
+/* in-page links glide to their section, which stops clear of the floating menu */
+html:has(.g-root) { scroll-behavior: smooth; scroll-padding-top: 100px; }
+
+@keyframes g-in { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+
+@media (prefers-reduced-motion: reduce) {
+  html:has(.g-root) { scroll-behavior: auto; }
+  .g-root * { animation: none !important; }
+}

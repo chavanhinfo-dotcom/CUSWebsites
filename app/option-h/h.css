@@ -1,0 +1,89 @@
+/* Option H: "Royal". The logo's own navy, deepened to midnight, with champagne gold, ivory (the logo's ground)
+   and pearl; set in Cormorant with Manrope. */
+.h-root {
+  --h-night: #061430; /* the deepest navy: the opening, the journey */
+  --h-navy: #0a1d40; /* the dark sections */
+  --h-navy-2: #10285a; /* raised panels on navy */
+  --h-brand: #072959; /* the logo's navy */
+  --h-gold: #c9a45c; /* champagne gold */
+  --h-gold-2: #e4c98f; /* light champagne */
+  --h-gold-deep: #94701f; /* gold that reads on pearl and ivory */
+  --h-ivory: #fefefe; /* the logo's ground */
+  --h-pearl: #f5f1ea;
+  --h-ink: #0b1530; /* text on light */
+  --h-mute: #69708a;
+  font-family: var(--font-manrope), system-ui, sans-serif;
+  background: var(--h-night);
+  color: var(--h-pearl);
+}
+.h-root ::selection { background: var(--h-gold); color: var(--h-night); }
+
+/* the display face, with even figures for years and counts */
+.h-serif {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-weight: 300;
+  letter-spacing: -0.012em;
+  font-variant-numeric: lining-nums;
+}
+
+/* the small label above each heading: a gold hairline, then spaced capitals */
+.h-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.36em;
+  text-transform: uppercase;
+  color: var(--h-gold);
+}
+.h-eyebrow::before { content: ""; width: 34px; height: 1px; background: currentColor; opacity: 0.85; }
+.h-eyebrow.h-dark { color: var(--h-gold-deep); }
+
+/* the centred column */
+.h-wrap { width: 100%; max-width: 1360px; margin-inline: auto; padding-inline: 20px; }
+@media (min-width: 768px) { .h-wrap { padding-inline: 48px; } }
+
+/* outlined numerals */
+.h-outline { color: transparent; -webkit-text-stroke: 1px rgba(228, 201, 143, 0.55); }
+
+/* the opening's medallion builds itself in CSS, so it plays from the very first paint, before the page's
+   scripts have run (they only open the aperture at the end). SVG parts turn about the drawing's centre. */
+@keyframes h-draw { from { stroke-dashoffset: var(--len); } to { stroke-dashoffset: 0; } }
+@keyframes h-turn-in { from { opacity: 0; transform: rotate(var(--from, -30deg)); } to { opacity: 1; transform: none; } }
+@keyframes h-medal { from { opacity: 0; transform: scale(0.55); } to { opacity: 1; transform: none; } }
+@keyframes h-rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@keyframes h-glint {
+  0% { opacity: 0; transform: rotate(-90deg); }
+  12% { opacity: 1; }
+  82% { opacity: 1; }
+  100% { opacity: 0; transform: rotate(270deg); }
+}
+@keyframes h-word { from { opacity: 0; transform: translateY(12px); letter-spacing: 0.5em; } to { opacity: 1; transform: none; letter-spacing: 0.16em; } }
+.pl-svg-part { transform-box: view-box; transform-origin: 50% 50%; }
+.pl-outer { animation: h-draw 1.6s cubic-bezier(0.65, 0, 0.35, 1) 0.1s both; }
+.pl-inner-ring { animation: h-draw 1.5s cubic-bezier(0.65, 0, 0.35, 1) 0.25s both; }
+.pl-ticks { --from: -40deg; animation: h-turn-in 1.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both; }
+.pl-medal { animation: h-medal 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.55s both; }
+.pl-logo { animation: h-rise 1.1s cubic-bezier(0.22, 1, 0.36, 1) 0.95s both; }
+.pl-engrave { --from: -24deg; animation: h-turn-in 1.7s cubic-bezier(0.16, 1, 0.3, 1) 0.9s both; }
+.pl-glint { animation: h-glint 1.55s cubic-bezier(0.45, 0, 0.55, 1) 1.3s both; }
+.pl-word { animation: h-word 1s cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+/* a chapter's timer */
+@keyframes h-bar { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+/* the seal in the opening turns slowly */
+@keyframes h-spin { to { transform: rotate(360deg); } }
+.h-spin { animation: h-spin 26s linear infinite; }
+
+/* the head office's pulse on the dial */
+@keyframes h-pulse { 0% { transform: scale(0.6); opacity: 0.85; } 100% { transform: scale(3); opacity: 0; } }
+.h-pulse { animation: h-pulse 2.6s ease-out infinite; transform-box: fill-box; transform-origin: center; }
+
+@media (prefers-reduced-motion: reduce) {
+  .h-root * { animation: none !important; }
+}
+
+/* the journey's current milestone: a ring that swells and fades */
+@keyframes h-ping { from { transform: scale(0.7); opacity: 0.9; } to { transform: scale(1.9); opacity: 0; } }

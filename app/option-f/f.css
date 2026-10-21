@@ -1,0 +1,49 @@
+/* Option F: simple and calm. The palette is the logo's own: its navy and gold, on its ivory ground. */
+.f-root {
+  --f-navy: #072959;
+  --f-deep: #05183a;
+  --f-night: #030f27;
+  --f-gold: #c78a1f;
+  --f-gold-2: #d9a441;
+  --f-ivory: #fefefe;
+  --f-cream: #f6f1e6;
+  --f-ink: #0b1630;
+  --f-mute: #5c667a;
+  font-family: var(--font-jakarta), system-ui, sans-serif;
+  color: var(--f-ink);
+  background: var(--f-ivory);
+}
+.f-display {
+  font-family: var(--font-bodoni), Georgia, serif;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  line-height: 1.04;
+  font-optical-sizing: auto;
+}
+.f-label {
+  font-family: var(--font-jakarta), system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+.f-root ::selection { background: var(--f-gold); color: var(--f-ivory); }
+
+/* every section's content sits in the same centred column */
+.f-wrap { width: 100%; max-width: 1200px; margin-inline: auto; padding-inline: 20px; }
+@media (min-width: 768px) { .f-wrap { padding-inline: 32px; } }
+
+/* the menu's links glide to their section, which stops clear of the menu bar */
+html:has(.f-root) { scroll-behavior: smooth; scroll-padding-top: 84px; }
+
+/* a row that scrolls sideways by touch (the franchises on a phone), without a visible scrollbar */
+.f-swipe { scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+.f-swipe::-webkit-scrollbar { display: none; }
+
+/* the opening's arrival */
+@keyframes f-fade { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+
+@media (prefers-reduced-motion: reduce) {
+  html:has(.f-root) { scroll-behavior: auto; }
+  .f-root * { animation: none !important; }
+}
