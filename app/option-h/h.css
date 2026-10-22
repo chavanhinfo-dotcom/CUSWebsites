@@ -85,5 +85,12 @@
   .h-root * { animation: none !important; }
 }
 
+/* the gallery's photograph drifts closer, slowly */
+@keyframes h-drift { from { transform: scale(1.07); } to { transform: scale(1); } }
+
+/* rows that scroll sideways by touch, without a visible scrollbar */
+.h-noscroll { scrollbar-width: none; }
+.h-noscroll::-webkit-scrollbar { display: none; }
+
 /* the journey's current milestone: a ring that swells and fades */
 @keyframes h-ping { from { transform: scale(0.7); opacity: 0.9; } to { transform: scale(1.9); opacity: 0; } }

@@ -6,15 +6,18 @@ import { headOffice, numberWord, statesOf, useContent, type District } from "@/c
 const C = 300; // the dial's centre (in a 600 × 600 drawing)
 const FACE = 262; // the face's radius
 const rad = Math.PI / 180;
+// (everything worked out with sine and cosine is rounded: the server's and the browser's last decimal places can
+// differ, and the page's HTML must match what the browser draws)
+const r3 = (n: number) => Math.round(n * 1000) / 1000;
 // the distance (km) and the compass bearing (degrees from north, clockwise) from one district to another
 const km = (a: District, b: District) => {
   const h = Math.sin(((b.lat - a.lat) * rad) / 2) ** 2 + Math.cos(a.lat * rad) * Math.cos(b.lat * rad) * Math.sin(((b.lon - a.lon) * rad) / 2) ** 2;
-  return 2 * 6371 * Math.asin(Math.sqrt(h));
+  return r3(2 * 6371 * Math.asin(Math.sqrt(h)));
 };
 const bearing = (a: District, b: District) => {
   const y = Math.sin((b.lon - a.lon) * rad) * Math.cos(b.lat * rad);
   const x = Math.cos(a.lat * rad) * Math.sin(b.lat * rad) - Math.sin(a.lat * rad) * Math.cos(b.lat * rad) * Math.cos((b.lon - a.lon) * rad);
-  return (Math.atan2(y, x) / rad + 360) % 360;
+  return r3((Math.atan2(y, x) / rad + 360) % 360);
 };
 const POINTS = ["N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"];
 const compass = (deg: number) => POINTS[Math.round(deg / 22.5) % 16];
@@ -76,7 +79,7 @@ export default function PresenceH() {
   for (let r = 50; r < far; r += 50) rings.push(r);
   const pos = (d: District) => {
     const b = bearing(hq, d) * rad, r = km(hq, d) * scale;
-    return { x: C + r * Math.sin(b), y: C - r * Math.cos(b) };
+    return { x: r3(C + r * Math.sin(b)), y: r3(C - r * Math.cos(b)) };
   };
   const point = (i: number) => {
     setHeld(true);
@@ -135,7 +138,7 @@ export default function PresenceH() {
               {Array.from({ length: 60 }, (_, i) => {
                 const a = i * 6 * rad, long = i % 5 === 0;
                 const r1 = 284, r2 = long ? 268 : 276;
-                return <line key={i} className="pr-tick" x1={C + r1 * Math.sin(a)} y1={C - r1 * Math.cos(a)} x2={C + r2 * Math.sin(a)} y2={C - r2 * Math.cos(a)} stroke={long ? "#c9a45c" : "rgba(241,234,217,0.28)"} strokeWidth={long ? 2 : 1} />;
+                return <line key={i} className="pr-tick" x1={r3(C + r1 * Math.sin(a))} y1={r3(C - r1 * Math.cos(a))} x2={r3(C + r2 * Math.sin(a))} y2={r3(C - r2 * Math.cos(a))} stroke={long ? "#c9a45c" : "rgba(241,234,217,0.28)"} strokeWidth={long ? 2 : 1} />;
               })}
             </g>
             {/* the face */}
@@ -143,15 +146,15 @@ export default function PresenceH() {
             {(["N", "E", "S", "W"] as const).map((l, i) => {
               const a = i * 90 * rad, r = FACE - 24;
               return (
-                <text key={l} x={C + r * Math.sin(a)} y={C - r * Math.cos(a) + 7} textAnchor="middle" fill="#e4c98f" fontSize="20" fontFamily="var(--font-cormorant)" fontStyle="italic">
+                <text key={l} x={r3(C + r * Math.sin(a))} y={r3(C - r * Math.cos(a) + 7)} textAnchor="middle" fill="#e4c98f" fontSize="20" fontFamily="var(--font-cormorant)" fontStyle="italic">
                   {l}
                 </text>
               );
             })}
             {rings.map((r) => (
               <g key={r} className="pr-ring">
-                <circle cx={C} cy={C} r={r * scale} fill="none" stroke="rgba(241,234,217,0.12)" strokeDasharray="2 5" />
-                <text x={C + r * scale * Math.SQRT1_2 + 4} y={C - r * scale * Math.SQRT1_2 - 4} fill="rgba(241,234,217,0.4)" fontSize="11" letterSpacing="1.5" fontFamily="var(--font-manrope)">
+                <circle cx={C} cy={C} r={r3(r * scale)} fill="none" stroke="rgba(241,234,217,0.12)" strokeDasharray="2 5" />
+                <text x={r3(C + r * scale * Math.SQRT1_2 + 4)} y={r3(C - r * scale * Math.SQRT1_2 - 4)} fill="rgba(241,234,217,0.4)" fontSize="11" letterSpacing="1.5" fontFamily="var(--font-manrope)">
                   {r} KM
                 </text>
               </g>

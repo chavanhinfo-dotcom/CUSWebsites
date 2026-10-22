@@ -125,7 +125,10 @@ export default function GalleryG() {
   const slide = (d: number) => row.current?.scrollBy({ left: d * row.current.clientWidth * 0.8, behavior: "smooth" });
   const arrow = "grid h-11 w-11 place-items-center rounded-full bg-[var(--g-tile)] text-[var(--g-navy)] shadow-[0_0_0_1px_var(--g-line)] transition-colors hover:bg-[var(--g-navy)] hover:text-white";
 
-  useEffect(() => row.current?.scrollTo({ left: 0 }), [album]);
+  // (a block, not an expression: scrollTo may return a Promise, and an effect may only return its clean-up)
+  useEffect(() => {
+    row.current?.scrollTo({ left: 0 });
+  }, [album]);
 
   return (
     <section id="gallery" className="py-20 md:py-28">

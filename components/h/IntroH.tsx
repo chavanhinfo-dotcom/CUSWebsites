@@ -4,6 +4,15 @@ import { gsap } from "@/lib/gsap";
 import { about, verticals } from "@/lib/content";
 import { districtsLine, headOffice, joinList, numberWord, statesOf, useContent } from "@/components/e/content";
 
+// the group's vision, and the three values it names
+const VISION =
+  "To be the most trusted and cherished partner in our customers’ journey, redefining excellence with unmatched quality, unwavering integrity, and exceptional experiences that inspire loyalty and elevate lives.";
+const VALUES = [
+  { title: "Unmatched quality", text: "Redefining excellence in everything we offer." },
+  { title: "Unwavering integrity", text: "Honouring the trust our customers place in us." },
+  { title: "Exceptional experiences", text: "Moments that inspire loyalty and elevate lives." },
+];
+
 // the photograph that stands beside each chapter
 const PICTURES = [
   { src: "/images/yarn-threads.jpg", alt: "Spools of coloured thread", caption: "Yarn & long cloth" },
@@ -50,7 +59,11 @@ export default function IntroH() {
           el.textContent = "0";
           gsap.to(obj, { v: end, duration: 2, ease: "power3.out", scrollTrigger: { trigger: el, start: "top 88%", once: true }, onUpdate: () => void (el.textContent = String(Math.round(obj.v))) });
         });
-        gsap.from(".gr-close > *", { y: 40, opacity: 0, duration: 1.2, ease: "expo.out", stagger: 0.1, scrollTrigger: { trigger: ".gr-close", start: "top 82%" } });
+        // the vision: its card rises, its words light up as they are read, its emblem turns, its values follow
+        gsap.from(".gr-vision", { y: 70, opacity: 0, scale: 0.97, duration: 1.4, ease: "expo.out", scrollTrigger: { trigger: ".gr-vision", start: "top 88%" } });
+        gsap.fromTo(".gr-vw", { opacity: 0.16 }, { opacity: 1, ease: "none", stagger: 0.1, scrollTrigger: { trigger: ".gr-vtext", start: "top 78%", end: "bottom 48%", scrub: true } });
+        gsap.fromTo(".gr-emblem", { rotation: -60, scale: 0.7, opacity: 0 }, { rotation: 0, scale: 1, opacity: 1, ease: "none", scrollTrigger: { trigger: ".gr-vision", start: "top 85%", end: "top 35%", scrub: true } });
+        gsap.from(".gr-value", { y: 30, opacity: 0, duration: 1, ease: "power3.out", stagger: 0.12, scrollTrigger: { trigger: ".gr-value", start: "top 90%" } });
       });
     }, root);
     return () => ctx.revert();
@@ -234,13 +247,69 @@ export default function IntroH() {
         </div>
       </div>
 
-      {/* ---- the promise ---- */}
-      <div className="gr-close h-wrap border-t border-[var(--h-ink)]/10 pb-28 pt-20 text-center md:pb-36 md:pt-28">
-        <span className="h-serif block text-[5rem] leading-[0.5] text-[var(--h-gold-deep)]" aria-hidden>
-          “
-        </span>
-        <p className="h-serif mx-auto mt-8 max-w-[26ch] text-[clamp(1.9rem,3.4vw,3.2rem)] italic leading-[1.2] text-[var(--h-brand)]">{about.closing}</p>
-        <p className="mt-8 text-[11px] font-semibold uppercase tracking-[0.34em] text-[var(--h-gold-deep)]">{company.motto}</p>
+      {/* ---- the vision: where the story is going ---- */}
+      <div id="vision" className="h-wrap pb-24 md:pb-32">
+        <div className="gr-vision relative overflow-hidden rounded-[28px] bg-[radial-gradient(ellipse_at_85%_0%,#1a3a78_0%,#0a1d40_52%,#061430_100%)] px-6 py-14 text-[var(--h-pearl)] shadow-[0_50px_100px_-50px_rgba(6,20,48,0.9)] md:rounded-[36px] md:px-16 md:py-20">
+          <span className="pointer-events-none absolute inset-2.5 rounded-[22px] border border-[var(--h-gold)]/35 md:inset-3.5 md:rounded-[28px]" aria-hidden />
+          <span className="pointer-events-none absolute inset-[17px] rounded-[17px] border border-[var(--h-gold)]/15 md:inset-[22px] md:rounded-[22px]" aria-hidden />
+          <span className="pointer-events-none absolute -left-24 -top-24 h-72 w-72 rounded-full bg-[var(--h-gold)]/[0.08] blur-3xl" aria-hidden />
+
+          <div className="relative grid gap-10 lg:grid-cols-[auto_minmax(0,1fr)] lg:gap-16">
+            {/* the emblem: a compass star in a ring, turning gently as it is read */}
+            <div className="flex items-center gap-5 lg:flex-col lg:items-center lg:pt-2">
+              <svg viewBox="0 0 100 100" className="gr-emblem h-20 w-20 shrink-0 md:h-28 md:w-28" aria-hidden>
+                <circle cx="50" cy="50" r="47" fill="none" stroke="#c9a45c" strokeOpacity="0.55" strokeWidth="1" />
+                <circle cx="50" cy="50" r="41" fill="none" stroke="#c9a45c" strokeOpacity="0.25" strokeWidth="0.8" strokeDasharray="1.5 3" />
+                <path d="M50 8 L56 44 L92 50 L56 56 L50 92 L44 56 L8 50 L44 44 Z" fill="#e4c98f" fillOpacity="0.92" />
+                <path d="M50 22 L53 47 L78 50 L53 53 L50 78 L47 53 L22 50 L47 47 Z" fill="#061430" transform="rotate(45 50 50)" fillOpacity="0.55" />
+                <path d="M50 26 L52.5 47.5 L74 50 L52.5 52.5 L50 74 L47.5 52.5 L26 50 L47.5 47.5 Z" fill="#c9a45c" transform="rotate(45 50 50)" />
+                <circle cx="50" cy="50" r="3.4" fill="#061430" stroke="#e4c98f" strokeWidth="1.2" />
+              </svg>
+              {/* (the label's own style sets its display, so where it shows is set on a wrapper) */}
+              <div className="lg:hidden">
+                <p className="h-eyebrow">Our vision</p>
+              </div>
+            </div>
+
+            <div>
+              <div className="hidden lg:block">
+                <p className="h-eyebrow">Our vision</p>
+              </div>
+              <p className="gr-vtext h-serif mt-0 text-[clamp(1.8rem,3.3vw,3.1rem)] leading-[1.22] lg:mt-6" aria-label={VISION}>
+                {VISION.split(" ").map((w, k) => {
+                  const lead = k >= 3 && k <= 7; // "most trusted and cherished partner"
+                  const value = /^(unmatched|quality,|unwavering|integrity,|exceptional|experiences)$/i.test(w);
+                  return (
+                    <span key={k} className="gr-vw" aria-hidden>
+                      <span className={lead ? "italic text-[var(--h-gold-2)]" : value ? "underline decoration-[var(--h-gold)]/60 decoration-1 underline-offset-[0.18em]" : ""}>{w}</span>{" "}
+                    </span>
+                  );
+                })}
+              </p>
+            </div>
+          </div>
+
+          {/* the three values the vision names */}
+          <div className="relative mt-12 grid gap-8 border-t border-white/10 pt-10 md:mt-16 md:grid-cols-3 md:gap-0 md:pt-12">
+            {VALUES.map((v, k) => (
+              <div key={v.title} className={`gr-value md:px-8 ${k ? "md:border-l md:border-white/10" : "md:pl-0"} ${k === VALUES.length - 1 ? "md:pr-0" : ""}`}>
+                <p className="flex items-baseline gap-3">
+                  <span className="h-serif text-[1.4rem] italic text-[var(--h-gold)]">{["I", "II", "III"][k]}</span>
+                  <span className="h-px w-8 bg-[var(--h-gold)]/50" />
+                </p>
+                <h3 className="h-serif mt-3 text-[1.75rem] leading-tight md:text-[2rem]">{v.title}</h3>
+                <p className="mt-2 text-[14px] leading-relaxed text-[var(--h-pearl)]/65">{v.text}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* the promise it rests on */}
+          <div className="gr-value relative mt-12 flex flex-col items-center gap-3 text-center md:mt-14">
+            <span className="h-2 w-2 rotate-45 bg-[var(--h-gold)]" aria-hidden />
+            <p className="h-serif max-w-[46ch] text-[1.15rem] italic leading-snug text-[var(--h-pearl)]/75 md:text-[1.3rem]">“{about.closing}”</p>
+            <p className="text-[10px] font-semibold uppercase tracking-[0.34em] text-[var(--h-gold-2)]">{company.motto}</p>
+          </div>
+        </div>
       </div>
     </section>
   );

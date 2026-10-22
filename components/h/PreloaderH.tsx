@@ -11,6 +11,9 @@ import { useContent } from "@/components/e/content";
 const V = 440, C = V / 2;
 const R_OUTER = 214, R_TEXT = 192, R_INNER = 170, R_MEDAL = 150;
 const TEXT_LEN = 2 * Math.PI * R_TEXT - 6;
+// (positions worked out with sine and cosine are rounded: the server's and the browser's last decimal places
+// can differ, and the page's HTML must match what the browser draws)
+const r3 = (n: number) => Math.round(n * 1000) / 1000;
 const L_OUTER = 2 * Math.PI * R_OUTER, L_INNER = 2 * Math.PI * R_INNER;
 const OPEN_AT = 2950; // ms from the first paint: the medallion has built itself (in CSS, see h.css)
 const WORD_DELAY = 1.5, WORD_STEP = 0.15; // s: the motto's words
@@ -123,7 +126,7 @@ export default function PreloaderH() {
                 {Array.from({ length: 72 }, (_, i) => {
                   const a = (i * 5 * Math.PI) / 180, long = i % 6 === 0;
                   const r1 = R_OUTER - 6, r2 = R_OUTER - (long ? 14 : 10);
-                  return <line key={i} x1={C + r1 * Math.sin(a)} y1={C - r1 * Math.cos(a)} x2={C + r2 * Math.sin(a)} y2={C - r2 * Math.cos(a)} stroke="#c9a45c" strokeOpacity={long ? 0.9 : 0.35} strokeWidth={long ? 1.4 : 0.8} />;
+                  return <line key={i} x1={r3(C + r1 * Math.sin(a))} y1={r3(C - r1 * Math.cos(a))} x2={r3(C + r2 * Math.sin(a))} y2={r3(C - r2 * Math.cos(a))} stroke="#c9a45c" strokeOpacity={long ? 0.9 : 0.35} strokeWidth={long ? 1.4 : 0.8} />;
                 })}
               </g>
               {/* the glint: a short bright arc that runs once round the rim */}
